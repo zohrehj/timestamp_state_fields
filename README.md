@@ -3,7 +3,7 @@
 Treat timestamp columns as state fields in a model.
 
 ## Usage
-Call timestamp_state_fields on timestamp columns that represents the state of the object.
+Call timestamp_state_fields on timestamp columns that represents state of your model, e.g.
 
     Class Order < ActiveRecord::Base
       include TimestampStateFields
@@ -14,11 +14,17 @@ It will enable the following interactions on user model.
 
     order = Order.new
 
-    # checks if the timestamp is set
+    # checks for presence of processed_at timestamp
     order.processed?
+
+    # checks if canceled_at is nil
+    order.not_canceled?
 
     # sets processed_at timestamp
     order.mark_as_processed unless order.processed?
+
+    # unsets processed_at timestamp
+    order.mark_as_not_processed
 
     # You can combine multiple scopes
     Order.processed.not_canceled.count
