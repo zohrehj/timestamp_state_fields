@@ -33,7 +33,7 @@ It will enable the following interactions on user model.
 
 Add this line to your application's Gemfile:
 
-    gem 'timestamps_state_fields'
+    gem 'timestamp_state_fields'
 
 And then execute:
 
